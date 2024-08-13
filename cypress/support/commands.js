@@ -8,7 +8,6 @@
 // https://on.cypress.io/custom-commands
 // ***********************************************
 //
-//
 // -- This is a parent command --
 // Cypress.Commands.add('login', (email, password) => { ... })
 //
@@ -23,3 +22,25 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+
+Cypress.Commands.add('login', () => {
+    cy.get('.modal-footer').find('button[data-auth="login"]').click();
+    cy.wait(500)
+    cy.get(`#loginEmail`).type("somemail@stud.noroff.no")
+    cy.get(`#loginPassword`).type("heiheihei")
+    cy.get('#loginForm button[type="submit"]').click()
+
+    cy.wait(1000)
+
+ })
+
+ Cypress.Commands.add('invalidLogin', () => {
+    cy.get('.modal-footer').find('button[data-auth="login"]').click();
+    cy.wait(500)
+    cy.get(`#loginEmail`).type("somemaiaaaal@stud.noroff.no")
+    cy.get(`#loginPassword`).type("invalid")
+    cy.get('#loginForm button[type="submit"]').click()
+
+    cy.wait(1000)
+
+ })
