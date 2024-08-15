@@ -26,6 +26,12 @@ class LocalStorageMock {
   global.localStorage = new LocalStorageMock();
 
 
+  const TEST_TOKEN = {
+    token: "I1iIsInR5cCI6IkXVCJ9.yJpCeyJhbGiOJIUzI6ND",
+  };
+  
+
+
 
   describe("storage", () => {
     it("Removes an array from storage", () => {
@@ -41,6 +47,7 @@ class LocalStorageMock {
 
   describe("logOut", () => {
     it("Logout function clears the token from storage ", async () => {
+      localStorage.setItem("token", TEST_TOKEN.token)
       const token = await logout();
       expect(token).toEqual(undefined);
     });
