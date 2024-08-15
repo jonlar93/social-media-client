@@ -1,0 +1,3 @@
+[![Automated Unit Testing](https://github.com/jonlar93/social-media-client/actions/workflows/unit-test.yml/badge.svg?branch=workflow)](https://github.com/jonlar93/social-media-client/actions/workflows/unit-test.yml)
+
+[![Automated E2E Testing](https://github.com/jonlar93/social-media-client/actions/workflows/e2e-test.yml/badge.svg?branch=workflow)](https://github.com/jonlar93/social-media-client/actions/workflows/e2e-test.yml)
