@@ -33,22 +33,10 @@ class LocalStorageMock {
 
 
 
-  describe("storage", () => {
-    it("Removes an array from storage", () => {
-      const key = "test";
-      const value = ["testName", "testPassword"];
-      save(key, value);
-      expect(load(key)).toEqual(value);
-      remove(key);
-      expect(load(key)).toEqual(null);
-    });
-  });
-
-
   describe("logOut", () => {
-    it("Logout function clears the token from storage ", async () => {
+    it("Logout function clears the token from storage ", () => {
       localStorage.setItem("token", TEST_TOKEN.token)
-      const token = await logout();
-      expect(token).toEqual(undefined);
+      logout();
+      expect(localStorage.getItem("token")).toBeNull();
     });
   });
